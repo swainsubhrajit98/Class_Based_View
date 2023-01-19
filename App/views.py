@@ -54,3 +54,28 @@ class CBV_Form(View):
 
 class CBV_Template(TemplateView):
     template_name='CBV_Template.html'
+
+# CBV used for Redering some Context to HTML page:
+
+class CBV_Context(TemplateView):
+    template_name='CBV_Context.html'
+
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        context['name']='Subhrajit'
+        context['age']=25
+        return context
+
+#CBV dealing with Django Form for user Input:
+class CBV_Form_Input(TemplateView):
+    template_name='cbv_form.html'
+
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        context['form']=StudentForm()
+        return context
+    
+    def post(self,request):
+        form_data=StudentForm(request.POST)
+        if form_data.is_valid():
+            return HttpResponse(str(form_data.cleaned_data))

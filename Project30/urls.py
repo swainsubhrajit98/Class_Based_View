@@ -31,4 +31,8 @@ urlpatterns = [
     path('CBV_Template/',CBV_Template.as_view(),name='CBV_Template'),
 
     path('CBV_Direct/',TemplateView.as_view(template_name='CBV_Direct.html'),name='CBV_Direct'),
+
+    path('CBV_Context/',CBV_Context.as_view(),name='CBV_Context'),
+
+    path('CBV_Form_Input/',CBV_Form_Input.as_view(),name='CBV_Form_Input'),
 ]

@@ -3,12 +3,12 @@ from django.views.generic import View,TemplateView
 from django.http import HttpResponse
 from App.forms import *
 # Create your views here.
-#FBV for returning string as REsponse
+#FBV for returning string as response
 
 def FBV_String(request):
     return HttpResponse('<h1>This is returned by FBV</h1>')
 
-#CBV for returning string as REsponse
+#CBV for returning string as response
 
 class CBV_String(View):
     def get(self,request):
@@ -25,7 +25,7 @@ class CBV_Page(View):
     def get(self,request):
         return render(request,'CBV_Page.html')
 
-# FBV for dealing with django forms
+#FBV for dealing with django forms
 
 def FBV_Form(request):
     form=StudentForm()
@@ -37,7 +37,7 @@ def FBV_Form(request):
             return HttpResponse(str(form_data.cleaned_data))
     return render(request,'FBV_Form.html',d)
 
-# CBV for dealing with django forms
+#CBV for dealing with django forms
 
 class CBV_Form(View):
     def get(self,request):
@@ -50,7 +50,7 @@ class CBV_Form(View):
         if form_data.is_valid():
             return HttpResponse(str(form_data.cleaned_data))
 
-# returning HTML page By using TemplateView Class
+#Returning HTML page By using TemplateView Class
 
 class CBV_Template(TemplateView):
     template_name='CBV_Template.html'

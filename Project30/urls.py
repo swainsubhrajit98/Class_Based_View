@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from App.views import *
+from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('FBV_String/',FBV_String,name='FBV_String'),
@@ -28,4 +29,6 @@ urlpatterns = [
     path('CBV_Form/',CBV_Form.as_view(),name='CBV_Form'),
 
     path('CBV_Template/',CBV_Template.as_view(),name='CBV_Template'),
+
+    path('CBV_Direct/',TemplateView.as_view(template_name='CBV_Direct.html'),name='CBV_Direct'),
 ]
